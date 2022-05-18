@@ -3,7 +3,7 @@
 ## Overview of Project
 
 ### Background
-Louise, an up-and-coming playwright, did a Kickstarter campaign for a play called Fever. Her campaign came close to its fundraising goal in a short amount of time. Louise wants to know how other campaigns fared in relation to hers in relation to their launch dates and their funding goals. We were provided with a datasheet that included fundraising information for various campaigns with similar endeavours. The datasheet included information such as launch date, country of origin, outcome, goal amount and amount pledged.
+Louise, an up-and-coming playwright, did a Kickstarter campaign for a play called Fever. Her campaign came close to its fundraising goal in a short amount of time. Louise wants to know how other campaigns fared in relation to hers in relation to their launch dates and their funding goals. We were provided with a datasheet that included Kickstarter fundraising information for various campaigns with similar endeavours. The datasheet included information such as launch date, country of origin, outcome, goal amount and amount pledged.
 
 ### Purpose
 
@@ -80,9 +80,9 @@ The chart looks as follows:
 
 ### Challenges and Difficulties Encountered for the Analysis of Outcomes Based on Launch Date
 
-The first challenge I encountered was debugging formulas for the Outcomes Based on Goals table. I was getting an error after I had copied and pasted the formulas I used for the "Successful" column to use for the "failed" column. It was only when I manually did the formula again that I realized that I had not 'frozen' the column with a "$" sign on the Successful column and this was fetching information from the wrong column. Going forward I realize the importance of reworking formulas/code to ensure I am not overlooking an error. 
+The first challenge I encountered was debugging formulas for the Outcomes Based on Goals table. I was getting an error after I had copied and pasted the formulas I used for the "Successful" column to use for the "failed" column. It was only when I manually did the formula again that I realized that I had not 'frozen' the column with a "$" sign on the Successful column. Because of this, the formula was calculating values from the wrong column. Going forward I realize the importance of reworking formulas/code to ensure I am not overlooking an error. 
 
-Another challenge I encountered was trying to confirm that my Outcomes based on Goals values were calculated correctly. To do so I manually filtered the datasheet with my two variables (Subcategory and Outcome), filtered the Goal column by each goal bracket and added the values to ensure they matched the results on my table. Although this was time-consuming I wondered if there might have been an easier way to confirm my findings. Going forward I want to work on my abilities to check my work and learn what are the most efficient ways to do so.
+Another challenge I encountered was trying to confirm that my Outcomes based on Goals values were calculated correctly. To do so I manually filtered the datasheet with my two variables (Subcategory and Outcome), filtered the Goal column by each goal bracket and added the values to ensure they matched the results on my table. Because this was time-consuming I wondered if there might have been an easier way to confirm my results. Going forward I want to improve my abilities to check my work and learn what are the most efficient ways to do so.
 
 A possible challenge that we did not encounter was heavily formatting the information. Although we had to make some adjustments, the information provided was clear and well identified overall. We could be presented a datasheet that is not well structured, has lack of reliability if it is provided by a client, it's missing data and/or has deficiencies that we do not know about. Because of this our work could be correct but if the dataset is not reliable we would be presenting false information.
 
@@ -102,9 +102,9 @@ A possible challenge that we did not encounter was heavily formatting the inform
 
 - What are some limitations of this dataset?
 
-> One limitation of the dataset is that this file only shows Kickstarter results. It does not detail other external factors. For example, if these campaigns were shared outside of the Kickstarter website and the reach they had. Another external factor could be the popularity of plays according to patrons. A play or playwright that may we well known would probably have a higher chance of getting funding instead of a new play such as the one Louise campaigned for.
+> One limitation of the dataset is that it only shows Kickstarter information. It does not include external factors or information outside of Kickstarter. For example, if these campaigns were shared outside of the Kickstarter website and the reach they had. Another external factor could be the popularity of plays according to patrons. A play or playwright that may be well known would probably have a higher chance of getting funding instead of a new play such as the one Louise campaigned for.
 > 
-> Another limitation is how a user may present their campaign on Kickstarter. Kickstarter allows users to upload videos, photographs, links and paragraphs of information to present to patrons. Because this information was not measured in the dataset we do not know the chance of a campaign failing because of poor presentation on Kickstarter.
+> Another limitation is how a user may present their campaign on Kickstarter. Kickstarter allows users to upload videos, photographs, links and paragraphs of information to present to patrons. Because this information was not measured in the dataset we do not know the effect poor presentation can have on the outcome of a campaign.
 
 - What are some other possible tables and/or graphs that we could create?
 
