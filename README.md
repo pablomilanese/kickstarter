@@ -3,7 +3,7 @@
 ## Overview of Project
 
 ### Background
-Louise, an up-and coming playwright, did a Kickstarter campaign for a play called Fever. Her campaign came close to its fundraising goal in a short amount of time. Louise wants to know how other campaigns fared in relation to hers in relation to their launch dates and their funding goals. We were provided with a datasheet that included fundraising information for various campaigns with similar endeavours. The datasheet included information such as launch date, country of origin, outcome, goal amount and amount pledged.
+Louise, an up-and-coming playwright, did a Kickstarter campaign for a play called Fever. Her campaign came close to its fundraising goal in a short amount of time. Louise wants to know how other campaigns fared in relation to hers in relation to their launch dates and their funding goals. We were provided with a datasheet that included fundraising information for various campaigns with similar endeavours. The datasheet included information such as launch date, country of origin, outcome, goal amount and amount pledged.
 
 ### Purpose
 
@@ -17,16 +17,21 @@ The purpose of this analysis is to assess if the launch date of Kickstarter camp
 Before creating a pivot table to analyze this information I converted the launch dates from the unix format provided into a MM/DD/YY format. To do so I used the following formula:
 
 ```=(((J2/60)/60)/24)+DATE(1970,1,1)``` 
+> Column J in the datasheet provided included the unix dates.
+> 
+> This is why cell J2 is used in the formula above.
 
-I also split the "Category and Subcategory" column into two separate columns. Because each cell differentiated the "Parent Category" from it's "Subcategory" with a "/" I went to Data > Text to Columns > Delimited > Other > "/".
+I also split the "Category and Subcategory" column into two separate columns. Doing this helps us get specific information that is tailored to Louise's requests.
 
-After I had formatted my data accordingly I created a Pivot Table with the following fields:
+To do this I went to Data > Text to Columns > Delimited > Other > "/". This process creates a column for each identifier. For example, a cell that included "theater / plays" was split into two separate columns; one showing "theater" and another showing "plays".
+
+After formatting the datasheet I created a Pivot Table with the following fields:
 
 <img width="294" alt="Screen Shot 2022-05-18 at 1 44 16 AM" src="https://user-images.githubusercontent.com/105120795/168974744-653004a6-18cc-41c5-b5b8-fe158c3286c3.png">
 
 > I filtered the Date Created field under row to only show months.
 > 
-> The Parent Category filter was set to "theater" given that this is the information Louise is interested in
+> The Parent Category filter was set to "theater" given that this is the information Louise is interested in.
 >
 >The Column Label was sorted in Descending order.
 
@@ -42,7 +47,7 @@ To perform my analysis of Outcomes Based on Goals I created a table that counted
 <img width="890" alt="Screen Shot 2022-05-18 at 1 54 23 AM" src="https://user-images.githubusercontent.com/105120795/168976365-e59e5132-6b1b-4826-ab52-2fb90ce01251.png">
 
 
-To find the values for Columns B to D I used the Countif formula with the "outcome" and "Subcategory" column as my variables. These variables were needed to ensure that the formula would only consider Kickstarter campaigns by outcome results to match my table and ensure that only "plays" were considered.
+To find the values for Columns B to D (count of successful, failed and canceled Kickstarters) I used the Countif formula with the "outcome" and "Subcategory" column as my variables. These variables were needed to ensure that the formula would only consider Kickstarter campaigns by outcome results to match my table and ensure that only "plays" were considered.
 
 To illustrate how this formula works we will be looking at cell C4 (outcomes failed with a goal between 5000 to 9999) as an example:
 
@@ -75,7 +80,11 @@ The chart looks as follows:
 
 ### Challenges and Difficulties Encountered for the Analysis of Outcomes Based on Launch Date
 
-The first challenge I found 
+The first challenge I encountered was debugging formulas for the Outcomes Based on Goals table. I was getting an error after I had copied and pasted the formulas I used for the "Successful" column to use for the "failed" column. It was only when I manually did the formula again that I realized that I had not 'frozen' the column with a "$" sign on the Successful column and this was fetching information from the wrong column. Going forward I realize the importance of reworking formulas/code to ensure I am not overlooking an error. 
+
+Another challenge I encountered was trying to confirm that my Outcomes based on Goals deliverable was calculated correctly. To do so I manually filtered the datasheet with my two variables (Subcategory and Outcome), filtered the Goal column by each goal bracket and added the values to ensure they matched the results on my table. Although this was time-consuming I wondered if there might have been an easier way to confirm my findings. Going forward I want to work on my abilities to check my work and learn what are the most efficient ways to do so.
+
+A possible challenge that we did not have with this datasheet was formatting the information. Although we had to make some adjustments, the information provided was clear and well identified overall. We could encounter a datasheet that is not well structured, has lack of reliability if it is provided by a client, it's missing data and/or has deficiencies that we do not know about. Because of this our work could be correct but if the dataset is not reliable we would be presenting false information.
 
 
 
@@ -84,17 +93,25 @@ The first challenge I found
 - What are two conclusions you can draw about the Outcomes based on Launch Date?
 
 > The first conclusion I can draw about the Outcomes based on Launch Date is that there is a higher number of successful Kickstarter campagins between March and May. With this in mind it is recommended that future campaigns are planned around these months and disregarded outside of this bracket. By doing so better goals can be achieved in the future.
-
-> The second conclusion I can draw about the Outcomes based on Launch Date is that failed Kickstarter campagins seem to follow a similar path as successful campaigns but at lower numbers. Because this analysis does not include other factors it is hard to discern if failure happened because of the launch date alone. 
+> 
+> The second conclusion I can draw about the Outcomes based on Launch Date is that failed Kickstarter campagins seem to follow a similar path as successful campaigns but at lower numbers. Because this analysis does not include other factors it is hard to discern if failure happened because of the launch date alone. Although this last statement is also true for the first conclusion, there is a bigger contrast of campaigns being successful between March and May.
 
 - What can you conclude about the Outcomes based on Goals?
 
-> I can conclude that the number of "successful campaigns" and number of "failed campaigns" based on goals are inversely correlated. It is also important to note that there were no canceled Kickstarters for plays. Because this analysis only gives us two values for each goal
+> I can conclude that the number of "successful campaigns" and number of "failed campaigns" based on goals are inversely correlated. This is because the total number of projects by goal brackets only includes two values. That being said, we can confirm that it is true that the lower the bracket for funding goals, the higher the chance of a campaign being successful.
 
-> What are some limitations of this dataset?
+- What are some limitations of this dataset?
 
-> Because this data set only shows campaign information concerning goals, we cannot discern if a campaign with a goal of <$1,000, for example, was not successful because of other variables such as launch date, popularity of plays in X country or other factors. On the other hand we may conclude that a campaign with a target of >$50,000 failed because the amount of money was too high.
+> One limitation of the dataset is that this file only shows Kickstarter results. It does not detail other external factors. For example, if these campaigns were shared outside of the Kickstarter website and the reach they had. Another external factor could be the popularity of plays according to patrons. A play or playwright that may we well known would probably have a higher chance of getting funding instead of a new play such as the one Louise campaigned for.
+> 
+> Another limitation is how a user may present their campaign on Kickstarter. Kickstarter allows users to upload videos, photographs, links and paragraphs of information to present to patrons. Because this information was not measured in the dataset we do not know the chance of a campaign failing because of poor presentation on Kickstarter.
 
 - What are some other possible tables and/or graphs that we could create?
 
-> Given that Louise's play is based in the US, I believe it is worth to consider the country as a variable that may help us get a more precise analysis of how her play may compare to other ones.
+> Given that Louise's play is based in the US, it would be helpful to focus on Kickstarter campaigns for plays in the United States. Because there are multiple countries considered I believe that this may be skewing our results.
+>
+> First, I would create an Outcomes based on Country table. I would identify each country on the first column, number of successful campaigns on the second, failed campaigns on the third and canceled campaings on the fourth column. I would use a =COUNTIF( formula to find the sum of outcomes with country (US), Subcategory (plays) and outcomes (successful, failed and canceled) as variables. Then I would order them in descending order and identify how the US compares to the most popular countries. The purpose of this table is to have a visual understanding of how many Kickstarter campaigns there are per country and what was their outcome. I would also create a pie chart since I believe that it would be visually easier to understand for Louise.
+> 
+> I would also create an Outcomes based on Launch Date pivot table and add "country" as a filter to compare Fever to other American plays.
+
+
